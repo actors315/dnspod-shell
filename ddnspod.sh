@@ -1,12 +1,12 @@
-#!/bin/sh
-#
+#!/usr/bin/env sh
+
+# Import env
+
+[ -f "./.env" ] && . ./.env
 
 # Import ardnspod functions
-. /your_real_path/ardnspod
-
-# Combine your token ID and token together as follows
-arToken="12345,7676f344eaeaea9074c123451234512d"
+. ./ardnspod
 
 # Place each domain you want to check as follows
 # you can have multiple arDdnsCheck blocks
-arDdnsCheck "test.org" "subdomain"
+arDdnsCheck "$DOMAIN" "$SUB_DOMAIN"

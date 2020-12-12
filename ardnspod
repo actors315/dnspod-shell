@@ -1,5 +1,4 @@
-#!/bin/sh
-#
+#!/usr/bin/env sh
 
 #############################################################
 # AnripDdns v6.0.0
@@ -14,8 +13,7 @@
 #############################################################
 
 # TokenID,Token
-
-export arToken=""
+arToken="$DP_API_ID,$DP_API_KEY"
 
 # Get WAN-IP
 
@@ -127,7 +125,7 @@ arDdnsUpdate() {
     recordId=$(echo $recordId | sed 's/.*"id":"\([0-9]*\)".*/\1/')
 
     # Update IP
-    recordRs=$(arDdnsApi "Record.Ddns" "domain_id=$domainId&record_id=$recordId&sub_domain=$2&record_type=A&value=$hostIp&record_line=%e9%bb%98%e8%ae%a4")
+    recordRs=$(arDdnsApi "Record.Ddns" "domain_id=$domainId&record_id=$recordId&sub_domain=$2&record_type=A&value=$hostIp&record_line=%e9%bb%98%e8%ae%a4&ttl=$TTL")
     recordIp=$(echo $recordRs | sed 's/.*,"value":"\([0-9\.]*\)".*/\1/')
     recordCd=$(echo $recordRs | sed 's/.*{"code":"\([0-9]*\)".*/\1/')
 

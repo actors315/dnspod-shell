@@ -4,7 +4,7 @@
 
 # 使用方法
 
--   编辑`ddnspod.sh`，分别修改`/your_real_path/ardnspod`、`arToken`和`arDdnsCheck`为真实信息
+-   `mv example.env .env` 生成配置文件，编辑`.env`，分别修。修改对应的的配置为真实信息
 
 -   运行`/your_real_path/ddnspod.sh`执行更新，_支持添加为cron任务_
 
