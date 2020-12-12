@@ -4,46 +4,13 @@
 
 # 使用方法
 
--   `mv example.env .env` 生成配置文件，编辑`.env`，分别修。修改对应的的配置为真实信息
+-   `mv example.env .env` 生成配置文件，编辑`.env`，分别修改对应的的配置为真实信息。或者将这些配置项写到系统环境变量也是可以的。
 
--   运行`/your_real_path/ddnspod.sh`执行更新，_支持添加为cron任务_
+-   运行`/your_real_path/ddnspod.sh`执行更新，_支持添加为cron任务_  
 
-### 小提示
+```
+*/10 * * * * cd /your_real_path/dnspod-shell/ && ./ddnspod.sh > /dev/null 2>&1
+```
 
--   如需单文件运行，将`ddnspod.sh`中的配置项添加到`ardnspod`底部，直接运行`ardnspod`即可
-
-# 最近更新
-
-2020/8/5
-
-- 修复 `get the wrong recordID` @C-Y-X
-
-2020/1/1
-
--   适配新版API（2019-11-26）
--   当`wget`不存在时，尝试使用`curl`提交
--   由于`readlink`不可靠，更改为手动设置路径
--   当无法从本地网卡获得外网ip时，尝试从外部api获取
-
-2015/2/24
-
--   增加token鉴权方式 (by wbchn)
-
-2015/7/7
-
--   使用D+服务获取域名解析
-
-2016/2/25
-
--   增加配置文件，分离脚本与配置，适配内网。
--   加入Mac支持
--   sed脚本POSIX化，可跨平台
-
-2016/3/23
-
--   进一步POSIX化，支持Mac和大部分Linux发行版
--   更改配置文件格式
-
-# 共同维护者
-
-ProfFan, <https://github.com/ProfFan>
+# 其他
+个人并不需要动态 DNS，所以将原作(https://github.com/anrip/dnspod-shell) 中的记录改成了普通记录
